@@ -34,20 +34,21 @@ function onuOlustur(plr)
     local id = dbExec(mysql:getConnection(), "INSERT INTO bocekler (ID, posx, posy, posz, interior, dimension) VALUES ("..(idQ)..", " .. (x) .. ", " .. (y) .. ", " .. (z) .. ", " .. (interior) .. "," .. (dimension)..")" )
 
     local bocek = {
-        id = id,
+        id = idQ,
         posx = x,
         posy = y,
         posz = z,
-        interior = interior
-        dimension = dimension
+        interior = interior,
+        dimension = dimension,
         obje = createObject(1337, x, y, z, 0.0, 0.0, 0.0, false)
     }
     bocekler[id] = bocek
+    outputChatBox("(( Başarıyla xx oluşturuldu! ID: "..idQ.." ))", plr, 155, 155, 155, true)
 end
 addCommandHandler("onuolustur", onuOlustur)
 
 function onuSil(plr, cmd, id)
-    if not id or not tonumber(id) then
+    if not id or tonumber(id) then
         bocekid = tonumber(id)
 
         if not bocekler[bocekid] then
