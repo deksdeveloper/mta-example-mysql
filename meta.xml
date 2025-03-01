@@ -1,0 +1,4 @@
+<meta>
+	<script src="deksS.lua" type="server" cache="false" />
+	<script src="deksC.lua" type="client" />
+</meta>
